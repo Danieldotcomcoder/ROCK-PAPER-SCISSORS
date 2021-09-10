@@ -1,5 +1,6 @@
-comppoints = 0;
-playerpoints = 0;
+var comppoints = 0;
+var playerpoints = 0;
+
 function computerPlay() {
 
     var randnum;
@@ -22,15 +23,12 @@ function computerPlay() {
 
     return compchoice;
 }
-
-
 function playerSelection() {
 
     var playerchoice = window.prompt("Enter Your Selection : rock , paper , scissors");
     playerchoice = playerchoice.toUpperCase();
     return playerchoice;
 }
-
 function gameplay() {
 
     let compplay = computerPlay();
@@ -80,21 +78,22 @@ function gameplay() {
             result = " you win , rock beats scissors"
             playerpoints++;
         }
-    }
-
-    console.log(result);
+     console.log(result);
+     }   
+     
 }
-
-
 function game() {
     let n = 1;
     while (n <= 5) {
+       
         gameplay();
         
-        console.log("Game number ", n)
+        console.log("Game number ", n);
         console.log("Your Points", playerpoints);
         console.log("Computer Points", comppoints);
+        
         n++;
+        
     }
     if (playerpoints > comppoints) {
         console.log("Congratulations You Won :) :) :) :) ")
