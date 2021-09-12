@@ -1,6 +1,7 @@
 var comppoints = 0;
 var playerpoints = 0;
 
+
 function computerPlay() {
 
     var randnum;
@@ -31,69 +32,67 @@ function playerSelection() {
 }
 function gameplay() {
 
-    let compplay = computerPlay();
-    let playselect = playerSelection();
-
+    var compplay = computerPlay();
+    var playselect = playerSelection();
+    var result ="";
 
     console.log("Your play is ", playselect);
     console.log("Computer play is", compplay);
 
-
-
-    if (compplay == "ROCK") {
-        if (playselect == "PAPER") {
-            result = "you win , paper beats rock"
-            playerpoints++;
-        }
-        else if (playselect == "SCISSORS") {
-            result = "you lose , rock beats scissors"
+    if (playselect == "ROCK") {
+        if (compplay == "PAPER") {
+            result = "you lose , paper beats scissors";
             comppoints++;
         }
-        else if (playselect == "ROCK") {
-            result = "Tie :) , No Points For Both"
+        else if (compplay == "SCISSORS") {
+            result = "you win , rock beats scissors";
+            playerpoints++;
+        }
+        else if (compplay == "ROCK") {
+            result = "Tie :) , No Points For Both";
         }
     }
-    else if (compplay == "PAPER") {
-        if (playselect == "PAPER") {
-            result = "Tie :) , No Points For Both"
+    else if (playselect == "PAPER") {
+        if (compplay == "PAPER") {
+            result = "Tie :) , No Points For Both";
         }
-        else if (playselect == "SCISSORS") {
-            result = "you win , scissors beats paper"
-            playerpoints++;
-        }
-        else if (playselect == "ROCK") {
-            result = " you lose , paper beats rock"
+        else if (compplay == "SCISSORS") {
+            result = "you lose , scissors beats paper";
             comppoints++;
+        }
+        else if (compplay == "ROCK") {
+            result = " you win , paper beats rock";
+            playerpoints++;
         }
     }
-    else if (compplay == "SCISSORS") {
-        if (playselect == "PAPER") {
-            result = " you lose , scissors beats paper"
-            comppoints++;
-        }
-        else if (playselect == "SCISSORS") {
-            result = "Tie :) , No Points For Both"
-        }
-        else if (playselect == "ROCK") {
-            result = " you win , rock beats scissors"
+    else if (playselect == "SCISSORS") {
+        if (compplay == "PAPER") {
+            result = " you win , scissors beats paper";
             playerpoints++;
         }
-     console.log(result);
-     }   
-     
+        else if (compplay == "SCISSORS") {
+            result = "Tie :) , No Points For Both";
+        }
+        else if (compplay == "ROCK") {
+            result = " you lose , rock beats scissors";
+             comppoints++;
+        }
+        
+        return result;
+       
+    }
+
 }
 function game() {
     let n = 1;
     while (n <= 5) {
-       
-        gameplay();
-        
+
+    gameplay();
         console.log("Game number ", n);
         console.log("Your Points", playerpoints);
         console.log("Computer Points", comppoints);
-        
+
         n++;
-        
     }
     if (playerpoints > comppoints) {
         console.log("Congratulations You Won :) :) :) :) ")
@@ -102,7 +101,7 @@ function game() {
     else if (comppoints > playerpoints) {
         console.log("You lose , Computer Wins :( :( :( :(")
     }
-    else if(comppoints == playerpoints){
+    else if (comppoints == playerpoints) {
         console.log("DRAW :|  :|  :|")
     }
 
